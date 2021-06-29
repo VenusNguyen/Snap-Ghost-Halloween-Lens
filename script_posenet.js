@@ -65,6 +65,18 @@ function draw() {
   updateKeypoints();
 
   drawKeypoints();
+
+  // console.log(interpolatedKeypoints[9]);
+
+  let leftWristPostion = interpolatedKeypoints[9];
+  if (leftWristPostion.y < height) {
+    tint(0, 153, 204);
+  } else {
+    tint(255);
+  }
+  
+
+
 }
 
 // A function to draw ellipses over the detected keypoints
