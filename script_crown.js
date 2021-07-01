@@ -95,6 +95,7 @@ function draw() {
     if (latestPrediction == null) return;
     //get forehead location
     let foreheadPos = latestPrediction.scaledMesh[FOREHEAD_POINT];
+
     let leftForeheadPos = latestPrediction.scaledMesh[LEFT_FOREHEAD];
     let rightForeheadPos = latestPrediction.scaledMesh[RIGHT_FOREHEAD];
 
