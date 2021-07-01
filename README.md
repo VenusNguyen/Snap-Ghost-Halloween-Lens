@@ -1,4 +1,4 @@
-# Assignment 2: Make a reverse-engineered Snap Lens
+# A reverse-engineered Snap Lens
 
 Here are the requirements: 
 
