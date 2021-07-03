@@ -4,9 +4,13 @@ let latestPrediction = null;
 let snapGhostImage;
 let deco1;
 
+let scream;
+
 const CHIN_POINT = 152;
 const LEFT_FOREHEAD = 104;
 const RIGHT_FOREHEAD = 333;
+const UPPER_LIP_INNER = 13;
+const LOWER_LIP_INNER = 14;
 
 
 // ------------------------------------------------------------------ //
@@ -15,6 +19,7 @@ const RIGHT_FOREHEAD = 333;
 function preload() {
     snapGhostImage = loadImage("assets/snap-ghost-1.png");
     deco1 = loadImage("assets/decoration-1.png");
+    scream = loadSound("assets/screaming.mp3");
 }
 
 function setup() {
@@ -36,6 +41,8 @@ function setup() {
     });
 
     video.hide();
+
+    scream.setVolume(1);
 }
 
 function draw() {
@@ -60,6 +67,12 @@ function draw() {
     
     //draw the decorations
     image(deco1, 0, 0, width, deco1.height);
+
+    //play screaming sound when users open their mouth
+    if (lipsDistance() > 10)
+    {
+        scream.play();
+    }
 }
 
 function drawSnapGhost() {
@@ -192,4 +205,19 @@ function drawMouthHoleMask() {
     webcamCopy.mask(mouthHoleMask); 
     imageMode(CORNER);
     image(webcamCopy, 0, 0, width, height);
+}
+
+//return the distance of the lips
+function lipsDistance() {
+    let upperLipPos = latestPrediction.scaledMesh[UPPER_LIP_INNER];
+    let lowerLipPos = latestPrediction.scaledMesh[LOWER_LIP_INNER];
+
+    let lipsDistance = dist (
+        upperLipPos[0],
+        upperLipPos[1],
+        lowerLipPos[0],
+        lowerLipPos[1]
+    );
+
+    return lipsDistance;
 }
