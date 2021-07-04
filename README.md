@@ -1,4 +1,4 @@
-# Reverse-engineered Snap Lens
+# Snap Ghost Halloween Lens
 
 ## Description
 ---
