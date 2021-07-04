@@ -2,7 +2,6 @@
 
 ## Description
 
-
 >This is a ghost snap len filter. The idea is drawing users' eyes and mouth on the Snap ghost logo.
 
 <!-- ![Video](assets/Snap-Lens-Vid.mov) -->
@@ -16,7 +15,6 @@
 
 
 ## How to run
----
 
 >1. Clone this repo to your personal device
 >2. Open it in Visual Studio Code
